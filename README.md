@@ -11,8 +11,12 @@ It also uses **NodeJS** and **Express** for the server-side and local **MongoDB*
 
 ## How-To-Use
 
-> git pull  
-> npm install  
+> git pull
+
+
+> npm install
+
+
 > npm start
 
 Then go to http://localhost:8888
