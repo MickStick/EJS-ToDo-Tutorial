@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta author="Mikhail Rene Shaw">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+        <title>ToDo App</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="assets/style/style.css"/>            
+        <script src="assets/script/jquery.min.js"></script>
+        <script src="assets/script/bundle.js"></script>
+        <script src="assets/script/script.js"></script>
+    </head>
+
+    <body>
+        <main id="todo-list">
+            <form >
+                <input type="text" name="item" placeholder="Add more.." required/>
+                <button type="submit">                    
+                    <svg fill="rgba(0,0,0,0.6)" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                </button>
+            </form>
+            <hr/>
+
+            <ul name="List">
+                <% for(var i = 0; i < todo.length; i++){ %>
+                     <li id="todo-item">
+                        <label id="todo-item-label"><%= todo[i].item %></label>
+                        <button id="del-item">                        
+                            <i class="material-icons">delete</i>
+                        </button>
+                    </li>
+                <% } %>
+            </ul>
+        </main>
+    </body>
+
+</html>

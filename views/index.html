@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+            var fs = require('fs');
+            var ejs = require('ejs');
+
+            fs.readFile('./views/todo.ejs', function(err, data){
+                if(err){
+                    document.body.innerHTML = err.toString();
+                    return;
+                }
+
+                var template = ejs.compile(data.toString());
+                document.body.innerHTML = template();
+            });
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
