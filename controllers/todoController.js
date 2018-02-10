@@ -15,9 +15,6 @@ mong.Promise = global.Promise;
 
 //Connect to mongo database
 
-/*mong.connect('mongodb://root:root@ds147882.mlab.com:47882/codeninja_tut_todo',{
-    useMongoClient: true,  
-});*/
 mong.connect(url, {
     useMongoClient: true,
 }, function() {
