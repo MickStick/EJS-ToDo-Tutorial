@@ -1,89 +1,111 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
 }
 
-body{
-    background: rgba(82,179,217,0.7);    
+body {
+    background: rgba(82, 179, 217, 0.7);
 }
 
-#todo-list{
+#userContainer {
+    width: 100%;
+    position: relative;
+}
+
+#loginBtn {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.userName {
+    width: 100% !important;
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: 24px;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+#todo-list,
+#todo-login {
     margin: auto;
     width: 900px;
     height: auto;
     padding: 5mm 0mm;
     position: relative;
     top: 30mm;
-    background: rgba(197,239,247,0.6); 
+    background: rgba(197, 239, 247, 0.6);
     border-radius: 5px;
-    box-shadow: 6px 6px 15px rgba(0,0,0,0.2);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-#todo-list form{
+#todo-list form {
     margin: auto;
     width: 92%;
 }
 
-#todo-list form input{
+#todo-list form input {
     width: 90%;
     height: 60px;
     text-indent: 5mm;
     border: 0.5mm solid;
-    border-color: rgba(197,239,247,0.4);
+    border-color: rgba(197, 239, 247, 0.4);
     border-radius: 3px;
 }
 
-#todo-list form button{
+#todo-list form button {
     width: 7%;
     height: 63px;
     position: relative;
     top: 9.9px;
-    background-color:rgba(228,241,254,0.7);
+    background-color: rgba(228, 241, 254, 0.7);
     border: none;
     border-radius: 3px;
     cursor: pointer;
 }
 
-#todo-list form button:hover{
-    background-color:rgba(228,241,254,1);
+#todo-list form button:hover {
+    background-color: rgba(228, 241, 254, 1);
 }
-#todo-list form button:active{
-    background-color:rgba(228,241,254,0.5);
+
+#todo-list form button:active {
+    background-color: rgba(228, 241, 254, 0.5);
 }
-#todo-list form button:focus{
+
+#todo-list form button:focus {
     outline: none;
 }
 
-
-
-#todo-list hr{
-   border-color:rgba(129,207,224,0.7);
-   width: 95%;
-   margin: auto;
-   margin-top: 3mm;
+#todo-list hr {
+    border-color: rgba(129, 207, 224, 0.7);
+    width: 95%;
+    margin: auto;
+    margin-top: 3mm;
 }
 
-#todo-list ul{
+#todo-list ul {
     margin: auto;
     margin-top: 5mm;
     width: 90%;
 }
 
-#todo-list ul li{
+#todo-list ul li {
     list-style-type: none;
     margin: 0mm 0mm 3mm 0mm;
     width: 100%;
     clear: both;
 }
 
-#todo-list ul li label{
+#todo-list ul li label {
     margin: 0mm 0mm 2mm 0mm;
     font-size: 80%;
 }
 
-#todo-list ul li button{
+#todo-list ul li button {
     float: right;
     /*margin-top: 2.5mm;*/
     position: relative;
@@ -94,32 +116,32 @@ body{
     cursor: pointer;
 }
 
-#todo-list ul li button i{
+#todo-list ul li button i {
     font-size: 28px;
-    color: rgba(255,0,0,0.6);
+    color: rgba(255, 0, 0, 0.6);
 }
 
-#todo-list ul li button:hover > i{
-    color: rgba(255,0,0,1);
+#todo-list ul li button:hover>i {
+    color: rgba(255, 0, 0, 1);
 }
 
-#todo-list ul li button:focus{
+#todo-list ul li button:focus {
     outline: none
 }
 
-#todo-list ul li button i{
+#todo-list ul li button i {
     margin-left: 100%;
 }
 
-@media screen and (max-width: 900px){
-    #todo-list{
+@media screen and (max-width: 900px) {
+    #todo-list {
         width: 98%;
     }
-
-    #todo-list form{
+    #todo-list form {
         width: 100%;
     }
 }
+
 
 /*@media screen and (max-width: 320px){
     *{
@@ -197,40 +219,34 @@ body{
 
 }*/
 
-@media screen and (max-width: 415px){
-    *{
+@media screen and (max-width: 415px) {
+    * {
         font-size: 15px;
     }
-    #todo-list{
+    #todo-list {
         top: 10mm;
         width: 95%;
         padding-bottom: 2mm;
     }
-
-    #todo-list form{
+    #todo-list form {
         width: 100%;
     }
-
-    #todo-list form input{
+    #todo-list form input {
         width: 75%;
         height: 25px;
         margin-left: 7%;
     }
-
-    #todo-list form button{
+    #todo-list form button {
         height: 27px;
         width: 10%;
         top: 2px;
     }
-
-    #todo-list form button svg{
+    #todo-list form button svg {
         width: 14;
         height: 14;
     }
-
-    #todo-list ul li button svg{
+    #todo-list ul li button svg {
         width: 14;
         height: 14;
     }
-
 }

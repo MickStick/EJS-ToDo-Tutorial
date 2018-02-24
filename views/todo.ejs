@@ -4,7 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta author="Mikhail Rene Shaw">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
-        <title>ToDo App</title>
+        <title>ToDo App | Todo List</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="assets/style/style.css"/>            
         <script src="assets/script/jquery.min.js"></script>
@@ -14,6 +14,27 @@
 
     <body>
         <main id="todo-list">
+            <script>
+                $(document).ready(function(){
+                    //alert(localStorage.getItem("user"));
+                    const user = JSON.parse(localStorage.getItem("user"));
+                    $('#todo-list').prepend(`<h3 class="userName">${user.name}</h3>`);
+                });
+            </script>
+            <button style="
+                        float: right; 
+                        border: none; 
+                        border-radius: 5px;
+                        background: rgba(240,240,240,0.8); 
+                        margin-right: 2mm;
+                        position: absolute;
+                        right: 0;
+                        top: 5;
+                        cursor: pointer;
+                        padding-right: 1px"
+                        id="logoutBtn">
+                <i class="material-icons" style="color: rgba(0,0,0,0.6);">exit_to_app</i>
+            </button>
             <form >
                 <input type="text" name="item" placeholder="Add more.." required/>
                 <button type="submit">                    
@@ -26,14 +47,48 @@
             <hr/>
 
             <ul name="List">
-                <% for(var i = 0; i < todo.length; i++){ %>
-                     <li id="todo-item">
-                        <label id="todo-item-label"><%= todo[i].item %></label>
-                        <button id="del-item">                        
-                            <i class="material-icons">delete</i>
-                        </button>
-                    </li>
-                <% } %>
+               <script>
+                    $(document).ready(function(){
+                        function createTodo(todo, parent) {
+                            var Todo = $("<li id=\"todo-item\"></li>");
+                            var item = $("<label id=\"todo-item-label\"></label>");
+                            item.text(todo);
+                            var delBtn = $("<button id=\"del-item\"><i class=\"material-icons\">delete</i></button>");
+                            Todo.append(item);
+                            Todo.append(delBtn);
+                            parent.append(Todo)
+                        }
+
+                        function getTodos() {
+                            const userId = JSON.parse(localStorage.getItem("user"))._id;
+                            alert(userId);
+                            const parent = $('ul[name=List]');
+                            //alert("Getting Todos");
+                            $.ajax({
+                                type: 'GET',
+                                url: '/todo/get',
+                                data:  userId ,
+                                success: function(data) {
+                                    //location.reload();//page relaods then something is done to the data
+                                    console.log(data);
+                                    if (data.Todo.length < 1) {
+                                        alert("No Todos");
+                                    } else {
+                                        for (let x = 0; x < data.Todo.length; x++) {
+                                            console.log("cheese");
+                                            createTodo(data.Todo[x].item, parent);
+                                        }
+                                    }
+
+                                }
+                            });
+
+                            return true;
+                        }
+
+                        getTodos();
+                    });
+               </script>
             </ul>
         </main>
     </body>
