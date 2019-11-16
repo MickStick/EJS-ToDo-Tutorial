@@ -15,9 +15,7 @@ mong.Promise = global.Promise;
 
 //Connect to mongo database
 
-mong.connect(url, {
-    useMongoClient: true,
-}, function() {
+mong.connect(url, function() {
     console.log("Connected to database: " + url + "...");
 });
 
