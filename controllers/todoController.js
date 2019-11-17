@@ -1,7 +1,7 @@
 var bp = require('body-parser');
 var urlcp = bp.urlencoded({ extended: false });
 var mong = require('mongoose'); //.MongoClient, assert = require('assert');
-var url = 'mongodb://localhost:27017/app';
+var url = process.env.MONGODB_URI;
 var shell = require('shelljs');
 
 /*var data = [
@@ -15,7 +15,12 @@ mong.Promise = global.Promise;
 
 //Connect to mongo database
 
-mong.connect(url, function() {
+mong.connect(url, 
+    { 
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }, 
+    function() {
     console.log("Connected to database: " + url + "...");
 });
 
