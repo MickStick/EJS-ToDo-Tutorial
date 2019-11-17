@@ -34,34 +34,16 @@ jobs:
             command: |
               git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
     
-    build_dev:
+  build_dev:
+    deploy:
       docker:
-        - image: circleci/node:10.4.1
-
+        - image: buildpack-deps:trusty
       steps:
         - checkout
-
-        - restore_cache:
-            keys:
-              - v1-dependencies-{{ checksum "package.json" }}
-              - v1-dependencies-
-
-        - run: npm install
-
-        - save_cache:
-            paths:
-              - node_modules
-            key: v1-dependencies-{{ checksum "package.json" }}
-
-        deploy:
-          docker:
-            - image: buildpack-deps:trusty
-          steps:
-            - checkout
-            - run:
-                name: Deploy Master to Heroku
-                command: |
-                  git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_DEV_APP_NAME.git master
+        - run:
+            name: Deploy Development to Heroku
+            command: |
+              git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_DEV_APP_NAME.git master
 
 workflows:
   version: 2
