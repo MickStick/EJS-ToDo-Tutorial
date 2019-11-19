@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta author="Mikhail Rene Shaw">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+        <title>ToDo App | Login</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="assets/style/style.css"/>            
+        <script src="assets/script/jquery.min.js"></script>
+        <script src="assets/script/bundle.js"></script>
+        <script src="assets/script/script.js"></script>
+    </head>
+    <style>
+        #todo-login {
+            width: 400px !important;
+        }
+        
+        #loginForm div {
+            display: block !important;
+            margin: 4mm auto !important;
+        }
+        #loginForm label {
+            font-size: 20px !important;
+            text-align: center !important;
+            font-weight: 600 !important;
+            display: block !important;
+            margin: 1mm auto !important;
+            width: 100% !important;
+        }
+        #loginForm input {
+            font-size: 18px !important;
+            display: block !important;
+            margin: 0.5mm auto !important;
+            height: 30px !important;
+            width: 350px !important;
+            padding: 1mm !important;
+            border: none;
+            border-radius: 2px;
+        }
+        #loginBtn { 
+            padding: 1mm !important;
+            position: relative !important;
+            left: 76% !important;
+            font-size: 25px !important;
+            border: none !important;
+            border-radius: 5px !important;
+            background: rgba(240,240,240, 1);
+            cursor: pointer;
+        }
+        #loginBtn:hover {
+            background : rgba(190, 190, 190, 1);
+        }
+        #loginBtn:active {
+            background : rgba(250, 250, 250, 1);
+        }
+        #loginBtn:focus{
+            outline: none !important;
+        }
+        #regForm div {
+            display: block !important;
+            margin: 4mm auto !important;
+        }
+        #regForm label {
+            font-size: 20px !important;
+            text-align: center !important;
+            font-weight: 600 !important;
+            display: block !important;
+            margin: 1mm auto !important;
+            width: 100% !important;
+        }
+        #regForm input {
+            font-size: 18px !important;
+            display: block !important;
+            margin: 0.5mm auto !important;
+            height: 30px !important;
+            width: 350px !important;
+            padding: 1mm !important;
+            border: none;
+            border-radius: 2px;
+        }
+        #regBtn { 
+            padding: 1mm !important;
+            position: relative !important;
+            left: 69% !important;
+            font-size: 25px !important;
+            border: none !important;
+            border-radius: 5px !important;
+            background: rgba(240,240,240, 1);
+            cursor: pointer;
+        }
+        #regBtn:hover {
+            background : rgba(190, 190, 190, 1);
+        }
+        #regBtn:active {
+            background : rgba(250, 250, 250, 1);
+        }
+        #regBtn:focus{
+            outline: none !important;
+        }
+        #authBtnContainer {
+            width: 100%;
+        }
+        #toReg {
+            float: left;
+            width: 45%;
+            margin-left: 2.5%;
+            font-size: 24px;
+            font-weight: 600;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid black;
+            cursor: pointer;
+            transition: background 250ms, outline 50ms, color 150ms, border-color 150ms;
+        }
+        #toLog {
+            float: right;
+            width: 45%;
+            margin-right: 2.5%;
+            font-size: 24px;
+            font-weight: 600;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid black;
+            cursor: pointer;
+            transition: background 250ms, outline 50ms, color 150ms, border-color 150ms;
+        }
+        #toReg:hover, #toLog:hover {
+            background: rgba(0,0,0,0.1);
+            outline: rgba(0,0,0,0.1) solid;
+            color: rgb(250,250,250);
+            border-color: rgb(250,250,250);
+        }
+        #toReg:active, #toLog:active {
+            background: none;
+            outline: none;
+        }
+        #toReg:focus, #toLog:focus {
+            outline: none;
+        }
+        #clear-fix {
+            clear: both;
+        }
+        @media screen and (max-width: 415px){
+            #todo-login {
+                width: 90% !important;
+            }
+            #loginForm input, #regForm input {
+                width: 90% !important;
+            }
+        }
+    </style>
+    <body>
+        <main id="todo-login">
+            <div>
+                <div id="authBtnContainer">
+                    <button id="toReg">Register</button>
+                    <button id="toLog">Login</button>
+                    <div id="clear-fix"></div>
+                </div>
+                <div id="loginDiv">
+                    <% include includes/login.ejs%>
+                </div>
+                <div id="regDiv" hidden>
+                    <% include includes/register.ejs%>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>
