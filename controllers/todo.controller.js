@@ -39,7 +39,7 @@ module.exports.addTodo = (req, res, next) => {
 module.exports.deleteTodo = (req, res, next) => {
     //delete todo item from db
     let todo = req.body;
-    Todo.find({ item: todo.item.replace(/\-/g, " "), user: todo.user}).remove(function(err, data) {
+    Todo.findById(todo).remove(function(err, data) {
         if (err) throw err;
         console.log(data);
         res.json(data);

@@ -28,9 +28,9 @@
 
             <ul name="List">
                 <% for(var i = 0; i < Todo.length; i++){ %>
-                     <li id="todo-item">
+                     <li id="todo-item" data-key="<%= Todo[i]._id %>">
                         <label id="todo-item-label"><%= Todo[i].item %></label>
-                        <button id="del-item">                        
+                        <button id="del-item" data-key="<%= Todo[i]._id %>">                        
                             <i class="material-icons">delete</i>
                         </button>
                     </li>

@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, '/public'))); //for using static fil
 
 router(app); //initialize and start up todo controller
 
-app.listen(port); //start listening on/to the port
-console.log("Listening to port: " + port);
+app.listen(port, console.log("Server listening at: " + port)); //start listening on/to the port
+
 
 module.exports = app;

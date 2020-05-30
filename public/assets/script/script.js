@@ -109,7 +109,7 @@ $(document).ready(function() {
                 }
                 //alert(`Message: ${data.message}`);
                 loginUser(data.User);
-                window.location = `/todo/${data.User._id}`;
+                window.location = `/todo/${data.User.username}`;
             }
         });
     });
@@ -140,7 +140,7 @@ $(document).ready(function() {
                 //location.reload();//page relaods then something is done to the data
                 //console.log(data);
                 loginUser(data.User);
-                window.location = `/todo/${data.User._id}`;
+                window.location = `/todo/${data.User.username}`;
             }
         });
     });
@@ -148,7 +148,7 @@ $(document).ready(function() {
     $('#todo-list form').on('submit', function(e) {
         e.preventDefault();
         const item = $('#todo-list form input');
-        const todo = { item: item.val(), user: JSON.parse(getLoggedInUser())._id };
+        const todo = { item: item.val(), user: JSON.parse(getLoggedInUser()).username };
         const parent = $('ul[name=List]');
 
 
@@ -170,13 +170,14 @@ $(document).ready(function() {
 
     $('li button').on('click', function(e) {
         var item = $(this).parent('#todo-item').children('#todo-item-label').text().replace(/ /g, "-");
+        var todoId = $(this).attr("data-key")
         alert(item);
-        let todo = {item: item, user : JSON.parse(getLoggedInUser())._id}
         var delThis = $(this).parent();
         console.log("here");
         $.ajax({
             type: 'DELETE',
-            url: '/todo/' + item,
+            url: '/todo/',
+            data: todoId,
             success: function(data) {
                 //location.reload();//page relaods then something is done to the data
                 delThis.remove();
