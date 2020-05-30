@@ -3,7 +3,7 @@ jobs:
   test:
     docker:
     # specify the version you desire here
-      - image: circleci/node:10.4.1
+      - image: circleci/node:current
 
     steps:
       - checkout
